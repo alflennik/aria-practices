@@ -243,7 +243,7 @@ DatePickerDialog.prototype.moveFocusToDay = function (day) {
 
   if (
     d.getMonth() != this.focusDay.getMonth() ||
-    d.getYear() != this.focusDay.getYear()
+    d.getFullYear() != this.focusDay.getFullYear()
   ) {
     this.updateGrid();
   }
@@ -763,7 +763,7 @@ DatePickerDialog.prototype.handleDayKeyDown = function (event) {
 };
 
 DatePickerDialog.prototype.handleDayClick = function (event) {
-  if (!this.isDayDisabled(event.currentTarget)) {
+  if (!this.isDayDisabled(event.currentTarget) && event.which !== 3) {
     this.setTextboxDate(event.currentTarget);
     this.close();
   }
